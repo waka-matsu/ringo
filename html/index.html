@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html練習</title>
+    <style>
+    #context{
+        padding: 30px 0;
+        /* 時計回りゼロ */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        Html練習
+    </header>
+    <nav>
+    <a href = exericise/text.html>00-Test</a><br>
+    <a href = exericise/test1.html>01-Test</a>
+    </nav>
+    <section id ="context">
+
+    </section>
+
+
+    <footer>
+       Modern web
+    </footer>
+    <script>
+       document.querySelectorAll('a').forEach(link => {
+        // リストアップして
+        const context = document.getElementById('context')
+        
+        link.onclick = function(e) {
+            //リストアップしたリンクの中でオンクリックしたやつにフンクションをやる
+            e.preventDefault()
+            fetch(link.href)
+            //こんなフィンクションがある
+                 .then(resp => resp.text())
+                 .then(html => context.innerHTML= html)
+            console.log('link')
+        }
+
+        
+
+       })
+    </script>
+</body>
+</html>
